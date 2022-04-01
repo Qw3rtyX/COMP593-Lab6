@@ -15,7 +15,7 @@ def main():
     if Pokemon_info:
         pb_strings = get_title_and_text(Pokemon_info)
         pb_url = post_to_pastebin(pb_strings[0], pb_strings[1])
-        print(pb_url)
+        return(pb_url)
         
 def post_to_pastebin(title, body_text):
 
@@ -38,7 +38,7 @@ def post_to_pastebin(title, body_text):
 
 def get_pokemon_info(Pokemon_name):
     print("Getting Pokemon information...", end='')
-    response = requests.get('https://pokeapi.co/' + str(Pokemon_name))
+    response = requests.get('https://pokeapi.co/api/v2/pokemon/mew' + str(Pokemon_name))
 
     if response.status_code == 200:
         print('success')
